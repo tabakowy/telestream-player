@@ -1,6 +1,8 @@
 import { ReactNode } from "react"
 import { Link } from "react-router-dom"
 
+import logo from "@/assets/telestream-logo.png"
+
 type AppLayoutProps = {
   children: ReactNode
 }
@@ -10,7 +12,7 @@ export function AppLayout({ children }: AppLayoutProps) {
     <div className="flex flex-col min-h-svh bg-slate-100">
       <header className="p-8 bg-white">
         <Link to="/" className="inline-flex items-center transition-opacity hover:opacity-70">
-          <img src="https://www.telestream.net/images/telestream-logo.png" alt="Telestream" className="max-w-40" />
+          <img src={logo} alt="Telestream" className="max-w-40" />
           <div className="pl-5 ml-5 text-xl font-bold border-l border-slate-300">Video Player</div>
         </Link>
       </header>
