@@ -1,5 +1,7 @@
 import { MutableRefObject, useEffect } from "react"
 
+import { togglePlay } from "../utils/togglePlay"
+
 export const VIDEO_SKIP_BY_VALUE = 10
 
 export const VIDEO_SHORTCUTS = {
@@ -28,17 +30,15 @@ export const VIDEO_SHORTCUTS = {
 export function useVideoShortcuts(videoRef: MutableRefObject<HTMLVideoElement | null>) {
   useEffect(() => {
     function handleKeyboardEvent(e: KeyboardEvent) {
+      e.preventDefault()
+
       const video = videoRef.current
       const code = e.code
 
       if (!video) return
 
       if (code === VIDEO_SHORTCUTS.togglePlay.keyCode) {
-        if (video.paused) {
-          video.play()
-        } else {
-          video.pause()
-        }
+        togglePlay(video)
       }
 
       if (code === VIDEO_SHORTCUTS.skipForward.keyCode) {
