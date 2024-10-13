@@ -34,16 +34,28 @@ Go to the frontend app directory
   cd frontend
 ```
 
+Setup environment variables
+
+```bash
+  cp .env.example .env.local
+```
+
 Install dependencies
 
 ```bash
   pnpm install
 ```
 
-Start the server
+Start the development server
 
 ```bash
   pnpm run dev
+```
+
+Or locally preview production build
+
+```bash
+  pnpm run build && pnpm run preview
 ```
 
 To run tests, run the following command
